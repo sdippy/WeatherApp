@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { getCoordinates, fetchWeather, getCityByCoords } from "./api/weather";
 import type { OpenMeteoWeather, GeoCity } from "./types/weather";
-import {
-  getWeatherLabel,
-  weatherIcons,
-  getWeatherBackground,
-} from "./utils/weather";
+import { getWeatherLabel, weatherIcons } from "./utils/weather";
 import { MapPin, Cloud } from "lucide-react";
-import WeatherParticles from "./components/WeatherParticles";
 import { getParticleType } from "./utils/WeatherParticles";
 
 export default function App() {
@@ -16,7 +11,6 @@ export default function App() {
   const [location, setLocation] = useState<GeoCity | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const particleType = getParticleType(weather?.current?.weather_code ?? 0);
 
   const handleSearch = async () => {
     if (!city) return;
