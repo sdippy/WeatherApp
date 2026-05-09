@@ -3,7 +3,6 @@ import { getCoordinates, fetchWeather, getCityByCoords } from "./api/weather";
 import type { OpenMeteoWeather, GeoCity } from "./types/weather";
 import { getWeatherLabel, weatherIcons } from "./utils/weather";
 import { MapPin, Cloud } from "lucide-react";
-import { getParticleType } from "./utils/WeatherParticles";
 
 export default function App() {
   const [city, setCity] = useState("");
