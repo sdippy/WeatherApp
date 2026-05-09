@@ -10,7 +10,6 @@ export default function App() {
   const [location, setLocation] = useState<GeoCity | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const handleSearch = async () => {
     if (!city) return;
 
@@ -272,9 +271,9 @@ export default function App() {
           </div>
         )}
         {daily && (
-          <div className="w-[450px] w-full flex flex-col gap-5">
+          <div className="w-[450px] w-full flex flex-col items-center gap-5">
             <p className="text-[14px] text-[#C2C0B6]">5 ДНЕЙ</p>
-            <div className="flex flex-col border-[1px] border-[#4A4A46] rounded-[10px] bg-[#30302E]">
+            <div className="w-[450px] flex flex-col border-[1px] border-[#4A4A46] rounded-[10px] bg-[#30302E]">
               {forecast5Days.map((day) => {
                 const Icon =
                   weatherIcons[day.code as keyof typeof weatherIcons] || Cloud;
