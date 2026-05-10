@@ -127,11 +127,17 @@ export default function App() {
       weatherCode: Number(hourly.weather_code[index]),
     })) || [];
 
+  const now = new Date();
+  now.setHours(now.getHours() + 2);
+
   const selectedHours = hourlyForecast
     .filter((hour) => {
       const date = new Date(hour.time);
 
-      return date.getHours() % 2 === 0;
+      return (
+        date >= now &&
+        date.getHours() % 2 === 0
+      );
     })
     .slice(0, 5);
 
