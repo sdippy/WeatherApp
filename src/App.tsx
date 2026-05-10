@@ -135,8 +135,7 @@ export default function App() {
       const date = new Date(hour.time);
 
       return (
-        date >= now &&
-        date.getHours() % 2 === 0
+        date >= now
       );
     })
     .slice(0, 5);
