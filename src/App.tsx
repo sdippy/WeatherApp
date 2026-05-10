@@ -128,14 +128,15 @@ export default function App() {
     })) || [];
 
   const now = new Date();
-  now.setHours(now.getHours() + 2);
+  now.setHours(now.getHours());
 
   const selectedHours = hourlyForecast
     .filter((hour) => {
       const date = new Date(hour.time);
 
       return (
-        date >= now
+        date >= now &&
+        date.getHours() % 2 === 0
       );
     })
     .slice(0, 5);
